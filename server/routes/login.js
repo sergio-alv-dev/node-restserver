@@ -8,7 +8,7 @@ const app = express();
 
 const { verificaToken } = require('../middlewares/autenticacion');
 
-app.post('/login', (req, res) => {
+app.post('/login', verificaToken, (req, res) => {
 
     let body = req.body;
 
