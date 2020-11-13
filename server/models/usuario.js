@@ -42,6 +42,7 @@ let usuarioSchema = new Schema({
     }
 });
 
+//no password on req
 usuarioSchema.methods.toJSON = function() {
     let user = this;
     let userObject = user.toObject();
