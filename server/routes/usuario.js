@@ -15,9 +15,9 @@ app.get('/usuario', verificaToken, (req, res) => {
 
     let desde = req.query.desde || 0;
     desde = Number(desde);
-
     let limite = req.query.limite || 5;
     limite = Number(limite);
+
     Usuario.find(soloActivos, 'nombre email')
         .skip(desde)
         .limit(limite)
@@ -57,16 +57,12 @@ app.post('/usuario', [verificaToken, verificaAdmin_Role], (req, res) => {
                 err
             });
         }
-
         // usuarioDB.password = null;
-
         res.json({
             ok: true,
             usuario: usuarioDB
         });
     });
-
-
 })
 
 app.put('/usuario/:id', [verificaToken, verificaAdmin_Role], (req, res) => {

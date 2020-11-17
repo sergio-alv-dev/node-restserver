@@ -13,7 +13,7 @@ const app = express();
 const { verificaToken } = require('../middlewares/autenticacion');
 const usuario = require('../models/usuario');
 
-app.post('/login', verificaToken, (req, res) => {
+app.post('/login', (req, res) => {
 
     let body = req.body;
 
